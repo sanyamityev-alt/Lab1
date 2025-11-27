@@ -1,0 +1,424 @@
+/* =================================
+   1. GLOBAL RESET & BOX MODEL
+   ================================= */
+
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; /* Встановлює блочну модель. */
+}
+
+/* Визначення CSS-змінних */
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #ffc107; 
+    --color-dark: #212529;
+    --color-light: #f8f9fa; 
+    --border-radius-base: 8px; 
+    --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.15); 
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif; 
+    line-height: 1.6; 
+    background-color: var(--color-light); 
+    color: var(--color-dark); 
+    padding-top: 70px; /* Відступ для фіксованого меню. */
+}
+
+main, header, footer {
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 15px 0;
+}
+
+/* Стилі для заголовків */
+h1 {
+    color: var(--color-secondary); 
+    text-transform: uppercase; 
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px var(--color-dark); 
+}
+h2 {
+    color: var(--color-dark);
+    text-transform: uppercase; 
+    border-bottom: 3px solid var(--color-secondary); 
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-size: 1.8em;
+}
+
+/* Стилізація посилань */
+a {
+    color: var(--color-primary);
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+a:hover { /* Псевдоклас :hover. */
+    color: var(--color-dark);
+    background-color: var(--color-secondary); 
+}
+
+/* =================================
+   2. HEADER & NAVIGATION (POSITION: FIXED)
+   ================================= */
+
+header {
+    background-color: var(--color-dark); 
+    color: white;
+    position: fixed; /* Фіксує шапку. */
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    padding: 10px 5%;
+    box-shadow: var(--shadow-base); 
+}
+
+nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 25px;
+    justify-content: flex-end; 
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover { 
+    color: var(--color-dark);
+    background-color: var(--color-secondary); 
+}
+
+/* =================================
+   3. LAYOUT & POSITIONING (FLOAT & CLEARFIX)
+   ================================= */
+
+/* Стилі для секцій та aside */
+main section, aside {
+    padding: 25px;
+    margin: 20px 0;
+    background: linear-gradient(180deg, white 0%, var(--color-light) 100%); 
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.float-left {
+    float: left; /* Обтікання ліворуч. */
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border: 3px solid var(--color-secondary);
+    border-radius: var(--border-radius-base);
+}
+
+.float-right {
+    float: right; /* Обтікання праворуч. */
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border: 3px solid var(--color-secondary);
+    border-radius: var(--border-radius-base);
+}
+
+.clearfix::after { 
+    content: ""; 
+    display: table; 
+    clear: both; /* Очищає плаваючий контекст. */
+}
+
+/* Стилі для figure та blockquote */
+figure {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+figcaption {
+    font-style: italic;
+    color: #6c757d;
+    text-align: center;
+    padding-top: 10px;
+}
+blockquote {
+    border-left: 5px solid var(--color-primary); 
+    padding: 15px 20px;
+    margin: 20px 0;
+    background-color: var(--color-light);
+    font-style: italic;
+}
+blockquote cite {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+}
+mark {
+    background-color: var(--color-secondary);
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* =================================
+   4. TABLES & FORMS STRUCTURE
+   ================================= */
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 20px 0;
+    box-shadow: var(--shadow-base);
+    border-radius: var(--border-radius-base);
+    overflow: hidden; 
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+thead th {
+    background-color: var(--color-dark);
+    color: white;
+    text-transform: uppercase;
+}
+tbody tr:nth-child(even) { /* Чергування кольорів рядків. */
+    background-color: #f9f9f9; 
+}
+tbody tr:hover {
+    background-color: #ffe89f; 
+}
+
+/* Стилізація Fieldset з градієнтом */
+fieldset {
+    border: 3px solid var(--color-primary);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius-base);
+    background: linear-gradient(135deg, var(--color-light) 0%, white 100%); 
+    box-shadow: var(--shadow-base);
+}
+
+legend {
+    font-size: 1.4em;
+    font-weight: 700;
+    padding: 5px 15px;
+    color: var(--color-dark);
+    background-color: var(--color-secondary);
+    border-radius: 4px;
+}
+
+.form-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+}
+
+/* =================================
+   5. FORMS INTERACTIVITY & VALIDATION
+   ================================= */
+
+/* Стилізація полів (input, textarea, select) */
+input:not([type="radio"]):not([type="checkbox"]), 
+textarea, 
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 6px; 
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus, /* Псевдоклас :focus. */
+textarea:focus, 
+select:focus {
+    border-color: var(--color-primary); 
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); 
+}
+
+input:valid { /* Псевдоклас :valid. */
+    border-color: green; 
+}
+input:invalid:not(:focus):not(:placeholder-shown) { /* Псевдоклас :invalid. */
+    border-color: red; 
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+/* Кнопки */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+button[type="submit"] { 
+    background-color: var(--color-primary);
+    color: white;
+}
+button[type="reset"] {
+    background-color: var(--color-dark);
+    color: white;
+}
+
+button:hover { /* Анімація: кнопка "піднімається". */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =================================
+   6. MODAL WINDOW (POSITION: FIXED)
+   ================================= */
+
+#loginForm {
+    position: fixed; /* Фіксує елемент відносно вікна браузера. */
+    top: 50%; 
+    right: 20px; 
+    transform: translateY(-50%); 
+    width: 320px;
+    padding: 25px;
+    background-color: var(--color-dark);
+    border: 5px solid var(--color-secondary); 
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); 
+    z-index: 999;
+}
+#loginForm legend, #loginForm label {
+    color: var(--color-secondary); 
+    background: none;
+}
+#loginForm fieldset {
+    border: none;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+
+/* =================================
+   7. FOOTER & SOCIAL
+   ================================= */
+
+footer {
+    background-color: var(--color-dark);
+    color: #ccc;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+footer a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+footer a:hover {
+    color: white;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+.social-icon {
+    width: 35px;
+    height: 35px;
+    margin: 0 8px;
+    filter: invert(1); 
+    transition: transform 0.3s;
+}
+.social-icon:hover {
+    transform: scale(1.2) rotate(5deg); 
+    filter: drop-shadow(0 0 5px var(--color-secondary));
+}
+
+/* =================================
+   8. СТИЛІ ДЛЯ index.html
+   ================================= */
+
+/* Стилі для головного фото */
+.main-photo {
+    display: block; 
+    width: 420px;
+    margin: 20px auto; 
+    border: 4px solid var(--color-primary); 
+}
+
+/* Стилі для допоміжних елементів (іконок) */
+.side-photos {
+    text-align: center;
+    margin-top: 20px;
+}
+.photo-box, .photo-link, .clickable-image {
+    display: inline-block; 
+    vertical-align: top;
+    margin: 15px;
+    padding: 10px;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.photo-link img {
+    border: 3px solid var(--color-secondary);
+}
+
+.clickable-image {
+    position: relative; 
+    border: 1px solid #ccc;
+}
+
+
+/* =================================
+   9. ПОЗИЦІОНУВАННЯ (contact.html)
+   ================================= */
+
+.abs-container {
+    position: relative; /* Батьківський елемент: відносне позиціонування, для чого? Щоб нащадки position: absolute позиціонувалися від нього. */
+    width: 250px; 
+    height: 250px;
+    margin: 30px 0 60px 0; 
+    border: 2px dashed #6c757d;
+}
+
+.abs-container img {
+    position: absolute; /* Усі три картинки позиціонуються абсолютно. */
+    border: 3px solid white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.abs-container img:hover {
+    transform: scale(1.05);
+}
+
+.abs-img-1 {
+    top: 0;
+    left: 0;
+    z-index: 10; 
+    border-color: #dc3545;
+}
+
+.abs-img-2 {
+    top: 50px;
+    left: 50px;
+    z-index: 20; 
+    border-color: var(--color-secondary);
+}
+
+.abs-img-3 {
+    top: 100px;
+    left: 100px;
+    z-index: 30; 
+    border-color: var(--color-primary);
+}

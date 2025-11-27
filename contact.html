@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти та Форми - Олександр Усик</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Контактна інформація та форми реєстрації/входу для фанатів Олександра Усика.">
+</head>
+<body>
+
+    <header>
+        <h1>Зв'язок з Фан-Клубом</h1>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="index.html">Головна (Біографія)</a></li>
+                <li><a href="contact.html">Контакти (Форми)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="info-block">
+            <h2>Інформаційний Блок</h2>
+
+            <div class="abs-container">
+                <img src="images/small_icon_1.png" alt="Спортивна іконка (фон)" width="200" height="200" class="abs-img-1">
+                <img src="images/small_icon_2.png" alt="Боксерська іконка (середня)" width="150" height="150" class="abs-img-2">
+                <img src="images/small_icon_3.png" alt="Чемпіонська іконка (перед)" width="100" height="100" class="abs-img-3">
+            </div>
+
+            <p>
+                <img src="images/small_icon_1.png" alt="Спортивна іконка" width="80" height="80" class="float-left">
+                Наш фан-клуб об'єднує прихильників Олександра Усика по всьому світу. Ми регулярно обговорюємо тактику його боїв та аналізуємо дії суперників. Фанати боксу знають, наскільки важлива технічна підготовка та швидкість рухів, що завжди демонструє Олександр. Цей розділ присвячений організаційним моментам і новинам нашої спільноти.
+            </p>
+            <div class="clearfix"></div>
+            
+            <p>
+                <img src="images/small_icon_2.png" alt="Боксерська іконка" width="80" height="80" class="float-right">
+                Ми займаємося організацією спільних переглядів головних боїв, а також проводимо розіграші оригінального мерчу та призів. Основна ідея боксу — це постійний рух і вміння знаходити слабкі місця опонента, чому Усик завжди приділяє велику увагу. Спільнота є відкритою для нових членів, які поділяють цінності чемпіона.
+            </p>
+            <div class="clearfix"></div>
+
+            <p>
+                <img src="images/small_icon_3.png" alt="Чемпіонська іконка" width="80" height="80" class="no-float">
+                Усі наші заходи проводяться з метою популяризації здорового способу життя та підтримки українського спорту. На відміну від плаваючих елементів, цей текст не обтікає зображення, демонструючи стандартну поведінку. Ми завжди раді новим ідеям та пропозиціям від наших учасників.
+            </p>
+        </section>
+
+        <hr>
+
+        <section id="forms-section">
+            <h2>Інтерактивні форми</h2>
+
+            <form id="registrationForm" action="/register" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Форма реєстрації</legend>
+
+                    <div class="form-grid">
+                        <div class="grid-item">
+                            <label for="reg-name">Ім'я: </label>
+                            <input type="text" id="reg-name" name="name" placeholder="Введіть ім'я" required minlength="2">
+                            
+                            <label for="reg-surname">Прізвище:</label>
+                            <input type="text" id="reg-surname" name="surname" placeholder="Введіть прізвище" required>
+
+                            <label>Стать:</label>
+                            <div class="radio-group">
+                                <input type="radio" id="male" name="gender" value="male" checked>
+                                <label for="male">Чоловік</label><br>
+                                
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Жінка</label><br>
+                                
+                                <input type="radio" id="other" name="gender" value="other">
+                                <label for="other">Інше</label>
+                            </div>
+
+                            <label for="reg-age">Вік (від 18):</label>
+                            <input type="number" id="reg-age" name="age" min="18" max="100" step="1" value="21">
+                            
+                            <label for="reg-bday">Дата народження:</label>
+                            <input type="date" id="reg-bday" name="birthday" max="2007-12-31" required>
+                        </div>
+                        
+                        <div class="grid-item">
+                            <label for="country">Країна проживання:</label>
+                            <select id="country" name="country" required>
+                                <option value="" disabled selected>- Оберіть країну --</option>
+                                <option value="ua">Україна</option>
+                                <option value="pl">Польща</option>
+                                <option value="us">США</option>
+                            </select>
+
+                            <label for="reg-phone">Номер телефону:</label>
+                            <input type="tel" id="reg-phone" name="phone" placeholder="+38(0XX)XXX-XX-XX" pattern="[0-9]{10,12}" title="Введіть телефон у форматі 10-12 цифр">
+                            
+                            <label for="reg-social">Соцмережа (URL):</label>
+                            <input type="url" id="reg-social" name="social" placeholder="Посилання на соцмережу">
+
+                            <label for="reg-email">Електронна пошта:</label>
+                            <input type="email" id="reg-email" name="email" placeholder="example@email.com" required>
+
+                            <label for="reg-password">Пароль: </label>
+                            <input type="password" id="reg-password" name="password" minlength="8" required>
+
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Чи згідні Ви з умовами?</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit">Зареєструватися</button>
+                        <button type="reset">Відміна</button>
+                    </div>
+
+                </fieldset>
+            </form>
+            
+            <form id="loginForm" action="/login" method="GET" class="modal-form">
+                <fieldset>
+                    <legend>Форма входу</legend>
+                    
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required>
+                    
+                    <label for="login-password">Пароль:</label>
+                    <input type="password" id="login-password" name="password" required>
+
+                    <button type="button" onclick="alert('Функціонал входу буде реалізовано пізніше')">Увійти</button>
+                </fieldset>
+            </form>
+            
+            <form id="feedbackForm" action="/feedback" method="POST">
+                <fieldset>
+                    <legend>Форма зворотнього зв'язку</legend>
+
+                    <label for="feed-name">Ім'я:</label>
+                    <input type="text" id="feed-name" name="name" required>
+
+                    <label for="feed-email">Email:</label>
+                    <input type="email" id="feed-email" name="email" required placeholder="example@email.com">
+                    
+                    <label for="feed-topic">Тема повідомлення (Datalist):</label>
+                    <input list="topics" id="feed-topic" name="topic">
+                    <datalist id="topics">
+                        <option value="Пропозиція співпраці">
+                        <option value="Технічна проблема">
+                        <option value="Запитання до Усика">
+                    </datalist>
+
+                    <label for="feed-message">Повідомлення:</label>
+                    <textarea id="feed-message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit" value="Відправити">Відправити</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            Copyright &copy; 2025 | 
+            mob. 0675412789 | 
+            email: usykfan@gmail.com
+        </p>
+        
+        <nav class="social-links">
+            <a href="#" aria-label="Facebook"><img src="images/icon_fb.png" alt="Facebook" class="social-icon"></a>
+            <a href="#" aria-label="Twitter"><img src="images/icon_tw.png" alt="Twitter" class="social-icon"></a>
+            <a href="#" aria-label="Instagram"><img src="images/icon_ig.png" alt="Instagram" class="social-icon"></a>
+            <a href="#" aria-label="YouTube"><img src="images/icon_yt.png" alt="YouTube" class="social-icon"></a>
+        </nav>
+    </footer>
+
+</body>
+</html>
